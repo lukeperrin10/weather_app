@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { Component } from "react";
 
 class App extends Component {
-  state= {
-    location:""
+  state = {
+    location: "",
+    
   };
 
   componentDidMount() {
@@ -18,11 +19,12 @@ class App extends Component {
       let weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${openWeatherMapKey}&units=metric`
       );
-
+debugger
       let weatherInfo = {
-        town: locationResponse.data.results[0].components.town,
-        temp: weatherResponse.data.current.temp,
+      town: locationResponse.data.results[0].components.town,
+      temp: weatherResponse.data.current.temp,
       };
+
       this.setState({ location: weatherInfo });
     });
   }
@@ -36,7 +38,8 @@ class App extends Component {
       </div>
       </>
     );
-  }
+  } 
+  
 }
 
 export default App;
