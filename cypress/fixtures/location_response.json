@@ -1,0 +1,66 @@
+{
+  "documentation": "https://opencagedata.com/api",
+  "licenses": [
+      {
+          "name": "see attribution guide",
+          "url": "https://opencagedata.com/credits"
+      }
+  ],
+  "rate": {
+      "limit": 2500,
+      "remaining": 2472,
+      "reset": 1618531200
+  },
+  "results": [
+      {
+          "bounds": {
+              "northeast": {
+                  "lat": 59.332525,
+                  "lng": 18.0685814
+              },
+              "southwest": {
+                  "lat": 59.332425,
+                  "lng": 18.0684814
+              }
+          },
+          "components": {
+              "ISO_3166-1_alpha-2": "SE",
+              "ISO_3166-1_alpha-3": "SWE",
+              "_category": "building",
+              "_type": "building",
+              "town": "Stockholm",
+              "city_district": "Norrmalms stadsdelsområde",
+              "continent": "Europe",
+              "country": "Sweden",
+              "country_code": "se",
+              "county": "Stockholm County",
+              "house_number": "33",
+              "municipality": "Stockholms kommun",
+              "political_union": "European Union",
+              "postcode": "111 47",
+              "road": "Hamngatan",
+              "suburb": "Norrmalm"
+          },
+          "confidence": 10,
+          "formatted": "Hamngatan 33, 111 47 Stockholm, Sweden",
+          "geometry": {
+              "lat": 59.332475,
+              "lng": 18.0685314
+          }
+      }
+  ],
+  "status": {
+      "code": 200,
+      "message": "OK"
+  },
+  "stay_informed": {
+      "blog": "https://blog.opencagedata.com",
+      "twitter": "https://twitter.com/OpenCage"
+  },
+  "thanks": "For using an OpenCage API",
+  "timestamp": {
+      "created_http": "Thu, 15 Apr 2021 18:08:27 GMT",
+      "created_unix": 1618510107
+  },
+  "total_results": 1
+}
