@@ -1,4 +1,4 @@
-describe('weather info for user\'s location', () => {
+describe('weather info for user\`s location', () => {
   it('is expected to be displayed on initial render', () => {
     cy.visit('/', ({
       onbeforeunload(window) {
