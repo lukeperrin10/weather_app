@@ -2,9 +2,8 @@ import axios from "axios";
 import React, { Component } from "react";
 
 class App extends Component {
-  state = {
-    town: "",
-    temp: "",
+  state= {
+    location:""
   };
 
   componentDidMount() {
@@ -31,8 +30,8 @@ class App extends Component {
     return (
       <>
       <div data-cy="weather-display">
-        <h1 data-cy="temp">7°C</h1>
-        <h1 data-cy="location">Stockholm</h1>
+        <h1 data-cy="temp">{this.state.location.temp} °C</h1>
+        <h1 data-cy="location">Stockholm {this.state.location.town}</h1>
 
       </div>
       </>

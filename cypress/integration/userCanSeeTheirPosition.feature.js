@@ -9,7 +9,7 @@ describe("weather info for user`s location", () => {
   });
   it("is expected to be displayed on initial render", () => {
     cy.visit("/", {
-      onbeforeunload(window) {
+      onBeforeLoad(window) {
         const stubLocation = {
           coords: {
             latitude: 59.46081,
