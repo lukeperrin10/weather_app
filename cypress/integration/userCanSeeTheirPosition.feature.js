@@ -4,8 +4,8 @@ describe('weather info for user\`s location', () => {
       onbeforeunload(window) {
         const stubLocation = {
           coords: {
-            latitude: 59.33,
-            longitude: 18.06,
+            latitude: 59.33245,
+            longitude: 18.06859,
           }
         };
         cy.stub(window.navigator.geolocation, "getCurrentPosition").callsFake(
