@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class App extends Component {
   state = {
     geolocation: {},
-    location: "",
+    location: {},
   };
 
   componentDidMount() {
@@ -19,30 +19,28 @@ class App extends Component {
       let weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${openWeatherMapKey}&units=metric`
       );
-      debugger;
       let weatherInfo = {
         town: locationResponse.data.results[0].components.town,
         temp: weatherResponse.data.current.temp,
         sunrise: weatherResponse.data.current.sunrise,
         sunset: weatherResponse.data.current.sunset,
-        country: locationResponse.data.results[0].components.country
+        country: locationResponse.data.results[0].components.country,
       };
 
       this.setState({ location: weatherInfo });
     });
   }
+
   render() {
-   
-   let sunrise=(this.state.location.sunrise*1000)
-   let sunriseActual=document.write(sunrise.toUTCString())
     return (
       <div data-cy="weather-display">
         <h2 data-cy="temp">{this.state.location.temp}°C</h2>
         <h2 data-cy="location">{this.state.location.town}</h2>
         <h2 data-cy="country">{this.state.location.country}</h2>
-        <h2 data-cy="sunrise">{this.sunriseActual}am</h2>
-        <h2 data-cy="sunset">{this.state.location.sunset}pm</h2>
-
+        <h2 data-cy="sunrise">
+          {new Date(this.state.location.sunrise*1000).getHours()}:{new Date(this.state.location.sunrise*1000).getMinutes()}am
+        </h2>
+        <h2 data-cy="sunset">{new Date(this.state.location.sunset*1000).getHours()}:{new Date(this.state.location.sunset*1000).getMinutes()}pm</h2>
       </div>
     );
   }
