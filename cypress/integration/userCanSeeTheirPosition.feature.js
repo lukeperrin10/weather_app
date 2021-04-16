@@ -1,3 +1,5 @@
+
+
 describe("weather info for user`s location", () => {
   beforeEach(() => {
     cy.intercept("https://api.openweathermap.org/data/2.5/**", {

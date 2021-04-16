@@ -1,7 +1,11 @@
+import React, { Component } from 'react';
 import axios from "axios";
-import React, { Component } from "react";
+import{} from 'semantic-ui-react';
+import {CurrentWeather } from './CurrentWeather'
 
-class App extends Component {
+
+class CurrentWeatherCard extends Component {
+  
   state = {
     geolocation: {},
     location: {},
@@ -27,23 +31,28 @@ class App extends Component {
         country: locationResponse.data.results[0].components.country,
       };
 
-      this.setState({ location: weatherInfo });
+       this.setState({ location: weatherInfo });
     });
   }
 
   render() {
+    
     return (
       <div data-cy="weather-display">
         <h2 data-cy="temp">{this.state.location.temp}°C</h2>
         <h2 data-cy="location">{this.state.location.town}</h2>
         <h2 data-cy="country">{this.state.location.country}</h2>
         <h2 data-cy="sunrise">
-          {new Date(this.state.location.sunrise*1000).getHours()}:{new Date(this.state.location.sunrise*1000).getMinutes()}am
+          {new Date(this.state.location.sunrise * 1000).getHours()}:
+          {new Date(this.state.location.sunrise * 1000).getMinutes()}am
         </h2>
-        <h2 data-cy="sunset">{new Date(this.state.location.sunset*1000).getHours()}:{new Date(this.state.location.sunset*1000).getMinutes()}pm</h2>
+        <h2 data-cy="sunset">
+          {new Date(this.state.location.sunset * 1000).getHours()}:
+          {new Date(this.state.location.sunset * 1000).getMinutes()}pm
+        </h2>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default CurrentWeatherCard;

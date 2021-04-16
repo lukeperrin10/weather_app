@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import CurrentWeather from './components/CurrentWeather';
 
 ReactDOM.render(
   <div>
-    <App />
+    <CurrentWeather />
   </div>,
   document.getElementById('root')
 );
