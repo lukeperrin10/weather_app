@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, Header, Container } from "semantic-ui-react";
-
+import { Divider, Grid, Header, Segment } from "semantic-ui-react";
+import Moment from "react-moment";
+import 'moment-timezone'
+//import Weatherforecast from "./WeatherForecast";
 
 class CurrentWeatherCard extends Component {
   state = {
@@ -34,31 +36,31 @@ class CurrentWeatherCard extends Component {
   }
 
   render() {
+    const sunrise = this.state.location.sunrise;
+    const sunset = this.state.location.sunset;
+
     return (
-      <div>
-        <Container>
-          <Grid>
-            <Grid.Column>
-              <Header as="h1">Local Weather</Header>
-              <div>
-                <h2 data-cy="temp">{this.state.location.temp}°C</h2>
-                <h2 data-cy="location">{this.state.location.town}</h2>
-                <h2 data-cy="country">{this.state.location.country}</h2>
-                <h2 data-cy="sunrise">
-                  Sunrise{" "}
-                  {new Date(this.state.location.sunrise * 1000).getHours()}:
-                  {new Date(this.state.location.sunrise * 1000).getMinutes()}am
-                </h2>
-                <h2 data-cy="sunset">
-                  Sunset{" "}
-                  {new Date(this.state.location.sunset * 1000).getHours()}:
-                  {new Date(this.state.location.sunset * 1000).getMinutes()}pm
-                </h2>
-              </div>
+      <Segment placeholder>
+        <Grid columns={2} stackable>
+          <Divider vertical></Divider>
+          <Grid.Row verticalAlign="middle">
+            <Grid.Column data-cy="weather-display">
+              <Header>Local Weather</Header>
+
+              <p data-cy="temp">{this.state.location.temp}°C </p>
+              <p data-cy="location">{this.state.location.town}</p>
+              <p data-cy="country">{this.state.location.country}</p>
+              <p>Sunrise {" "}
+                <Moment data-cy="sunrise" unix format="HH:mm">{sunrise}</Moment>
+              </p>
+              
+              <p>Sunset{" "}
+                <Moment data-cy="sunset" unix format="HH:mm">{sunset}</Moment>
+              </p>
             </Grid.Column>
-          </Grid>-
-        </Container>
-      </div>
+          </Grid.Row>
+        </Grid>
+      </Segment>
     );
   }
 }

@@ -29,8 +29,8 @@ describe("weather info for user`s location", () => {
       cy.get("[data-cy=temp]").should("contain", "7°C");
       cy.get("[data-cy=location]").should("contain", "Stockholm");
       cy.get('[data-cy=country]').should('contain', 'Sweden');
-      cy.get('[data-cy=sunrise]').should('contain','5:31')
-      cy.get('[data-cy=sunset]').should('contain','20:1')
+      cy.get('[data-cy=sunrise]').should('contain','05:31')
+      cy.get('[data-cy=sunset]').should('contain','20:01')
     });
   });
 });
