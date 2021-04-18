@@ -27,6 +27,7 @@ class CurrentWeatherCard extends Component {
         town: locationResponse.data.results[0].components.town,
         temp: weatherResponse.data.current.temp,
         sunrise: weatherResponse.data.current.sunrise,
+        sunrisedaily: weatherResponse.data.daily.sunrise,
         sunset: weatherResponse.data.current.sunset,
         country: locationResponse.data.results[0].components.country,
       };
@@ -38,6 +39,9 @@ class CurrentWeatherCard extends Component {
   render() {
     const sunrise = this.state.location.sunrise;
     const sunset = this.state.location.sunset;
+    const temp = this.state.location.temp;
+    const country = this.state.location.country;
+    const town = this.state.location.town;
 
     return (
       <Segment placeholder>
@@ -47,9 +51,9 @@ class CurrentWeatherCard extends Component {
             <Grid.Column data-cy="weather-display">
               <Header>Local Weather</Header>
 
-              <p data-cy="temp">{this.state.location.temp}°C </p>
-              <p data-cy="location">{this.state.location.town}</p>
-              <p data-cy="country">{this.state.location.country}</p>
+              <p data-cy="temp">{temp}°C </p>
+              <p data-cy="location">{town}</p>
+              <p data-cy="country">{country}</p>
               <p>
                 Sunrise{" "}
                 <Moment data-cy="sunrise" unix format="HH:mm">
@@ -64,10 +68,11 @@ class CurrentWeatherCard extends Component {
                 </Moment>
               </p>
             </Grid.Column>
+
             <Grid.Column>
               Sunrise next 7 Days
-              <Weatherforecast data={this.state.location.sunrise} />
-              </Grid.Column>
+              <Weatherforecast data={this.state.location.sunrisedaily} />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </Segment>

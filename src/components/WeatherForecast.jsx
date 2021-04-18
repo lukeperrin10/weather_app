@@ -4,17 +4,14 @@ import { Line } from "react-chartjs-2";
 
 
 const Weatherforecast = (props) => {
-  let dateGraph = [];
+  let dateGraph = ['Mon','Tues','Wed','Thurs','Fri','Sat','Sun'];
   let sunriseGraph = [];
   
   
 
   if (props.data) {
     props.data.forEach((props) => {
-      let date = new Date(props.dt * 1000);
-      let sunrise = new (Date(data.sunrise * 1000))();
-
-      date.push(dateGraph);
+      let sunrise = new (Date(props.location.sunrise * 1000))();
       sunrise.push(sunriseGraph);
     });
   }
@@ -24,15 +21,15 @@ const Weatherforecast = (props) => {
     datasets: [
       {
         label: "Surise Time",
-        data: sunriseGraph,
+        data: [],
       },
     ],
   };
 
   return (
   <div>
-    {data && <Line data={data}
-     height={300} width={400} />}
+    <Line data={data}
+     height={300} width={400} />
      </div>
   )
 };
