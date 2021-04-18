@@ -7,7 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-    "chart.js": "^3.1.1",
+    "chart.js": "2.9.4",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "node-env-file": "^0.1.8",

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Divider, Grid, Header, Segment } from "semantic-ui-react";
 import Moment from "react-moment";
-import 'moment-timezone'
-//import Weatherforecast from "./WeatherForecast";
+import "moment-timezone";
+import Weatherforecast from "./WeatherForecast";
 
 class CurrentWeatherCard extends Component {
   state = {
@@ -50,14 +50,24 @@ class CurrentWeatherCard extends Component {
               <p data-cy="temp">{this.state.location.temp}°C </p>
               <p data-cy="location">{this.state.location.town}</p>
               <p data-cy="country">{this.state.location.country}</p>
-              <p>Sunrise {" "}
-                <Moment data-cy="sunrise" unix format="HH:mm">{sunrise}</Moment>
+              <p>
+                Sunrise{" "}
+                <Moment data-cy="sunrise" unix format="HH:mm">
+                  {sunrise}
+                </Moment>
               </p>
-              
-              <p>Sunset{" "}
-                <Moment data-cy="sunset" unix format="HH:mm">{sunset}</Moment>
+
+              <p>
+                Sunset{" "}
+                <Moment data-cy="sunset" unix format="HH:mm">
+                  {sunset}
+                </Moment>
               </p>
             </Grid.Column>
+            <Grid.Column>
+              Sunrise next 7 Days
+              <Weatherforecast data={this.state.location.sunrise} />
+              </Grid.Column>
           </Grid.Row>
         </Grid>
       </Segment>
